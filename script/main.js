@@ -316,8 +316,6 @@ const animationTimeline = () => {
 
 // Run fetch and animation in sequence
 fetchData();
-//playing audio
-playAudio();
 
 var x = document.getElementById("audio");
 
