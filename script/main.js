@@ -317,8 +317,17 @@ const animationTimeline = () => {
 // Run fetch and animation in sequence
 fetchData();
 
-var x = document.getElementById("audio");
+document.addEventListener('DOMContentLoaded', function() {
+      var audioElement = document.getElementById('audio');
+      audioElement.muted = true;
+      audioElement.play().then(function() {
+        console.log('Audio is playing');
+      }).catch(function(error) {
+        console.error('Error playing the audio:', error);
+      });
 
-function playAudio() {
-  x.play();
-} 
+      // Unmute on user interaction
+      document.addEventListener('click', function() {
+        audioElement.muted = false;
+      });
+    });
